@@ -1,41 +1,43 @@
-const connection = require("../database/connection");
+const connection = require('../database/connection')
 
 module.exports = {
   async store(req, res) {
-    const { name, id_recipe } = req.body;
+    const { name, id_recipe } = req.body
 
-    const [id] = await connection("tb_tips").insert({
+    const [id] = await connection('tb_tips').insert({
       name,
-      id_recipe
-    });
+      id_recipe,
+    })
 
-    return res.json({ id });
+    return res.json({ id })
   },
 
   async index(req, res) {
-    const { id_recipe } = req.query;
+    const { id_recipe } = req.query
 
-    const tips = await connection("tb_tips")
-      .select("*")
-      .where("id_recipe", id_recipe);
+    const tips = await connection('tb_tips')
+      .select('*')
+      .where('id_recipe', id_recipe)
 
-    return res.json({ tips });
+    return res.json({ tips })
   },
 
   async delete(req, res) {
-    const { id } = req.params;
+    const { id } = req.params
 
-    const tip = await connection("tb_tips")
-      .select("*")
-      .where("id", id)
-      .first();
+    const tip = await connection('tb_tips')
+      .select('*')
+      .where('id', id)
+      .first()
 
     if (!tip) {
-      return res.status(400).json({ erro: "Dica não encontrada!" });
+      return res.status(400).json({ erro: 'Dica não encontrada!' })
     }
 
-    await connection('tb_tips').delete().where('id', id)
+    await connection('tb_tips')
+      .delete()
+      .where('id', id)
 
-    res.status(204).send();
-  }
-};
+    res.status(204).send()
+  },
+}

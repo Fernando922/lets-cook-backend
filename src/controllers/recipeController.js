@@ -1,25 +1,25 @@
-const connection = require("../database/connection");
+const connection = require('../database/connection')
 
 module.exports = {
   async store(req, res) {
-    const { name, image, id_category } = req.body;
+    const { name, image, id_category } = req.body
 
-    const [id] = await connection("tb_recipes").insert({
+    const [id] = await connection('tb_recipes').insert({
       name,
       image,
-      id_category
-    });
-    return res.json({ id });
+      id_category,
+    })
+    return res.json({ id })
   },
 
   async index(req, res) {
-    const { id_category } = req.query;
+    const { id_category } = req.query
 
-    const recipes = await connection("tb_recipes").where(
-      "id_category",
+    const recipes = await connection('tb_recipes').where(
+      'id_category',
       id_category
-    );
+    )
 
-    return res.json(recipes);
-  }
-};
+    return res.json(recipes)
+  },
+}
