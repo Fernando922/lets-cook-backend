@@ -1,7 +1,4 @@
 // created with npx knex init
-/**
- * you need to add where is your database and migrations
- */
 const path = require('path')
 module.exports = {
   development: {
@@ -12,10 +9,9 @@ module.exports = {
     migrations: {
       directory: './src/database/migrations',
     },
-    useNullAsDefault: true, // always add this line
+    useNullAsDefault: true,
   },
 
-  // database only for tests (you need to create this)
   test: {
     client: 'sqlite3',
     connection: {
@@ -24,7 +20,7 @@ module.exports = {
     migrations: {
       directory: './src/database/migrations',
     },
-    useNullAsDefault: true, // always add this line
+    useNullAsDefault: true,
   },
 
   staging: {
