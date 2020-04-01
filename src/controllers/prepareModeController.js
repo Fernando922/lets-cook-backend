@@ -14,11 +14,11 @@ module.exports = {
 
   async index(req, res) {
     const { id_recipe } = req.query
-    const prepareModes = await connection('tb_prepareModes')
+    const content = await connection('tb_prepareModes')
       .select('*')
       .where('id_recipe', id_recipe)
 
-    return res.json({ prepareModes })
+    return res.json({ content })
   },
 
   async delete(req, res) {

@@ -15,11 +15,11 @@ module.exports = {
   async index(req, res) {
     const { id_recipe } = req.query
 
-    const ingredientsList = await connection('tb_ingredients')
+    const content = await connection('tb_ingredients')
       .select('*')
       .where('id_recipe', id_recipe)
 
-    return res.json({ ingredientsList })
+    return res.json({ content })
   },
 
   async delete(req, res) {
