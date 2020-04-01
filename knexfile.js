@@ -1,5 +1,5 @@
-// created with npx knex init
 const path = require('path')
+
 module.exports = {
   development: {
     client: 'sqlite3',
@@ -11,7 +11,6 @@ module.exports = {
     },
     useNullAsDefault: true,
   },
-
   test: {
     client: 'sqlite3',
     connection: {
@@ -22,7 +21,6 @@ module.exports = {
     },
     useNullAsDefault: true,
   },
-
   staging: {
     client: 'postgresql',
     connection: {
@@ -38,7 +36,6 @@ module.exports = {
       tableName: 'knex_migrations',
     },
   },
-
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
