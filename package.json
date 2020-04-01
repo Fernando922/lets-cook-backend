@@ -3,30 +3,34 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "start": "nodemon server.js",
-    "test": "cross-env NODE_ENV=test jest",
-    "db": "npx knex migrate:rollback && npx knex migrate:latest"
+  "devDependencies": {
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-config-standard": "14.1.1",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
+    "git-cz": "4.3.1",
+    "husky": "4.2.3",
+    "jest": "25.2.4",
+    "nodemon": "2.0.2",
+    "supertest": "4.0.2"
   },
   "dependencies": {
-    "celebrate": "^12.0.1",
-    "cors": "^2.8.5",
-    "cross-env": "^7.0.2",
-    "express": "^4.17.1",
-    "knex": "^0.20.13",
-    "pg": "^8.0.0",
-    "sqlite3": "^4.1.1"
+    "celebrate": "12.0.1",
+    "cors": "2.8.5",
+    "cross-env": "7.0.2",
+    "express": "4.17.1",
+    "knex": "0.20.13",
+    "sqlite3": "4.1.1"
   },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "6.10.1",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "jest": "^25.2.4",
-    "nodemon": "^2.0.2",
-    "supertest": "^4.0.2"
+  "scripts": {
+    "commit": "git-cz",
+    "db": "npx knex migrate:rollback && npx knex migrate:latest",
+    "start": "nodemon src/server.js",
+    "test": "cross-env NODE_ENV=test jest"
   }
 }
