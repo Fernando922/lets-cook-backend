@@ -9,7 +9,7 @@ module.exports = {
   async store(req, res) {
     const { name, image } = req.body
 
-    const [id] = await connection('tb_categories').insert({
+    const [id] = await connection('tb_categories').returning('id').insert({
       name,
       image,
     })
