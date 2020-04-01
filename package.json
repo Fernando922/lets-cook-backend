@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/server.js",
+    "start": "nodemon server.js",
     "test": "cross-env NODE_ENV=test jest",
     "db": "npx knex migrate:rollback && npx knex migrate:latest"
   },

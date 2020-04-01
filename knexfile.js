@@ -2,7 +2,7 @@
 /**
  * you need to add where is your database and migrations
  */
-
+const path = require('path')
 module.exports = {
   development: {
     client: 'sqlite3',
@@ -12,10 +12,10 @@ module.exports = {
     migrations: {
       directory: './src/database/migrations',
     },
-    useNullAsDefault: true, //always add this line
+    useNullAsDefault: true, // always add this line
   },
 
-  //database only for tests (you need to create this)
+  // database only for tests (you need to create this)
   test: {
     client: 'sqlite3',
     connection: {
@@ -24,7 +24,7 @@ module.exports = {
     migrations: {
       directory: './src/database/migrations',
     },
-    useNullAsDefault: true, //always add this line
+    useNullAsDefault: true, // always add this line
   },
 
   staging: {
@@ -47,7 +47,7 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     migrations: {
-      directory: './src/database/migrations',
+      directory: path.join(__dirname,'/src/database/migrations'),
     },
   },
 }
